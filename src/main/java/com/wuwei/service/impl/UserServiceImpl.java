@@ -70,6 +70,7 @@ public class UserServiceImpl implements UserService {
         }
         try {
             List<User> users = ExcelUtil.getUserList(file);
+            //List<User> users = ExcelUtil.importExcel(file, 0, 1, User.class);
             //todo 优化，直接传递集合到数据库
             for (User user : users) {
                 User user0 = userDao.findUser(user.getPhone());
