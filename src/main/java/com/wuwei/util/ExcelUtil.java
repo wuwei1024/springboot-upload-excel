@@ -135,13 +135,7 @@ public class ExcelUtil {
 
     private static String getCellValue(Cell cell) {
         if (cell == null) return null;
-        switch (cell.getCellType()) {
-            case 0:
-                return String.valueOf((long) cell.getNumericCellValue());
-            case 1:
-                return cell.getStringCellValue();
-            default:
-                return "";
-        }
+        cell.setCellType(Cell.CELL_TYPE_STRING);
+        return cell.getStringCellValue();
     }
 }
